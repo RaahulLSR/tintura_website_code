@@ -1,5 +1,15 @@
 import { Category, Product, Feature } from './types';
 
+// --- SUPABASE CONFIGURATION ---
+// Project ID extracted from: db.xxwlkcpxoojpejiwyzzv.supabase.co
+const SUPABASE_PROJECT_URL = "https://xxwlkcpxoojpejiwyzzv.supabase.co"; 
+
+// Storage Bucket paths
+// Ensure your bucket is named 'products' and is Public.
+// Structure: products/casuals/01.png, products/lite/01.png
+const IMG_BASE_CASUALS = `${SUPABASE_PROJECT_URL}/storage/v1/object/public/Products/casuals/`;
+const IMG_BASE_LITE = `${SUPABASE_PROJECT_URL}/storage/v1/object/public/Products/lite/`;
+
 export const FEATURES: Record<string, Feature> = {
   'biowash': { id: 'biowash', name: 'Special BioWash', iconType: 'drop', description: 'Enzyme treated for extra softness and longevity.' },
   'dryfit': { id: 'dryfit', name: 'Dry Fit', iconType: 'wind', description: 'Keeps you dry and comfortable.' },
@@ -23,12 +33,8 @@ export const FEATURES: Record<string, Feature> = {
   'lycra': { id: 'lycra', name: '4-Way Lycra', iconType: 'stretch', description: 'Premium stretch for maximum flexibility.' },
 };
 
-// Base URLs
-const IMG_BASE_CASUALS = "https://raw.githubusercontent.com/RaahulLSR/tintura_website/main/TINTURA%20CASUALS%20BOOK%20FULL%20DETAILS%20_%20APPROVAL%20LOW_Page_";
-const IMG_BASE_LITE = "https://raw.githubusercontent.com/RaahulLSR/tintura_website/main/TINTURA%20LITE%20BOOK%20FULL%20DETAILS%20_%20APPROVAL%20LOW_Page_";
-
 export const PRODUCTS: Product[] = [
-  // --- CASUALS & SPORTZ (Existing) ---
+  // --- CASUALS & SPORTZ ---
   {
     id: '1004',
     styleCode: '1004',
