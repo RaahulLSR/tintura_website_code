@@ -22,13 +22,13 @@ const Footer: React.FC = () => {
           <div>
              <h3 className="text-xl font-display font-bold mb-6 border-b border-gray-800 pb-2">CONTACT US</h3>
              <div className="space-y-4 text-gray-300">
-                <div className="flex items-start space-x-3">
+                <div className="flex items-start space-x-3 group cursor-pointer">
                     <MapPin className="w-5 h-5 text-tintura-red flex-shrink-0 mt-1" />
-                    <div>
+                    <a href="https://maps.app.goo.gl/fXAxY1wMRxm26VBD6" target="_blank" rel="noopener noreferrer" className="hover:text-tintura-red transition-colors">
                         <p className="font-bold text-white">SREYEAS CREATIONS</p>
                         <p>48C, KVP Layout, Karuvampalayam</p>
                         <p>Tirupur - 641 604. INDIA</p>
-                    </div>
+                    </a>
                 </div>
                 <div className="flex items-center space-x-3">
                     <Phone className="w-5 h-5 text-tintura-red" />
@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 <a href="#" className="w-10 h-10 bg-gray-800 flex items-center justify-center rounded-full hover:bg-tintura-red transition-colors">
                     <Facebook className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 flex items-center justify-center rounded-full hover:bg-tintura-red transition-colors">
+                <a href="https://www.instagram.com/tintura.official/?hl=en" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 flex items-center justify-center rounded-full hover:bg-tintura-red transition-colors">
                     <Instagram className="w-5 h-5" />
                 </a>
             </div>

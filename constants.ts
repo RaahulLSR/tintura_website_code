@@ -5,10 +5,13 @@ import { Category, Product, Feature } from './types';
 const SUPABASE_PROJECT_URL = "https://xxwlkcpxoojpejiwyzzv.supabase.co"; 
 
 // Storage Bucket paths
-// Ensure your bucket is named 'products' and is Public.
-// Structure: products/casuals/01.png, products/lite/01.png
+// UPDATED: Bucket name is 'Products' (Capital P) based on user verification.
+// Structure: Products/casuals/01.webp, Products/lite/01.webp
 const IMG_BASE_CASUALS = `${SUPABASE_PROJECT_URL}/storage/v1/object/public/Products/casuals/`;
 const IMG_BASE_LITE = `${SUPABASE_PROJECT_URL}/storage/v1/object/public/Products/lite/`;
+
+// Cache buster to force browser to re-fetch images if they were previously cached as 404 or old format
+const VER = "?v=2";
 
 export const FEATURES: Record<string, Feature> = {
   'biowash': { id: 'biowash', name: 'Special BioWash', iconType: 'drop', description: 'Enzyme treated for extra softness and longevity.' },
@@ -42,7 +45,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Single Jersey Fabric. Bio Wash Premium Quality. "Ride" & "Future" prints.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}01.png`,
+    imageUrl: `${IMG_BASE_CASUALS}01.webp${VER}`,
     color: 'Red / Black / Blue'
   },
   {
@@ -52,7 +55,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Single Jersey Fabric. Bio Wash Premium Quality. Essential solids.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}02.png`,
+    imageUrl: `${IMG_BASE_CASUALS}02.webp${VER}`,
     color: 'Maroon / Black / Blue'
   },
   {
@@ -62,7 +65,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Pique Fabric. Bio Wash Premium Quality. Classic Polo.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}03.png`,
+    imageUrl: `${IMG_BASE_CASUALS}03.webp${VER}`,
     color: 'Maroon / Black / Yellow / Red'
   },
   {
@@ -72,7 +75,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton French Terry Fabric. With Zipper.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_CASUALS}04.png`,
+    imageUrl: `${IMG_BASE_CASUALS}04.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -82,7 +85,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton Single Jersey Fabric. With Piping & Zip.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}05.png`,
+    imageUrl: `${IMG_BASE_CASUALS}05.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -92,7 +95,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton Single Jersey Fabric. With Zip Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}06.png`,
+    imageUrl: `${IMG_BASE_CASUALS}06.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -102,7 +105,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton French Terry Fabric. Trendy New Arrival.',
     features: ['frenchterry', 'biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}07.png`,
+    imageUrl: `${IMG_BASE_CASUALS}07.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -112,7 +115,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton French Terry Fabric With Zip.',
     features: ['frenchterry', 'biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}08.png`,
+    imageUrl: `${IMG_BASE_CASUALS}08.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -122,7 +125,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton Single Jersey fabric. With Piping & Zip.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}09.png`,
+    imageUrl: `${IMG_BASE_CASUALS}09.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -132,7 +135,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton Single Jersey Fabric. With Side Print.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}10.png`,
+    imageUrl: `${IMG_BASE_CASUALS}10.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -142,7 +145,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Rich Cotton Single Jersey Fabric. With Zip.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}11.png`,
+    imageUrl: `${IMG_BASE_CASUALS}11.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -152,7 +155,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear - Dry Fit. Genuine Tintura Comfort.',
     features: ['dryfit', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}12.png`,
+    imageUrl: `${IMG_BASE_CASUALS}12.webp${VER}`,
     color: 'Grey / Black / Navy'
   },
   {
@@ -162,7 +165,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear - Dry Fit. Genuine Tintura Comfort.',
     features: ['dryfit', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}13.png`,
+    imageUrl: `${IMG_BASE_CASUALS}13.webp${VER}`,
     color: 'Grey / Black / Navy'
   },
   {
@@ -172,7 +175,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Tank Top. "Let\'s Go Play" prints.',
     features: ['dryfit'],
-    imageUrl: `${IMG_BASE_CASUALS}14.png`,
+    imageUrl: `${IMG_BASE_CASUALS}14.webp${VER}`,
     color: 'Red / Black / Navy / Blue'
   },
   {
@@ -182,7 +185,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Pique Fabric Bio Wash Premium Quality.',
     features: ['biowash', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}15.png`,
+    imageUrl: `${IMG_BASE_CASUALS}15.webp${VER}`,
     color: 'Black / Red / Navy / Cool Blue'
   },
   {
@@ -192,7 +195,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Premium Quality Sports Wear. Standout Style.',
     features: ['coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}16.png`,
+    imageUrl: `${IMG_BASE_CASUALS}16.webp${VER}`,
     color: 'Black / Red / Navy / Cool Blue / Grey'
   },
   {
@@ -202,7 +205,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear. Research and Develop.',
     features: ['coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}17.png`,
+    imageUrl: `${IMG_BASE_CASUALS}17.webp${VER}`,
     color: 'Grey Melange / Black / Navy'
   },
   {
@@ -212,7 +215,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear. Top Trend.',
     features: ['coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}18.png`,
+    imageUrl: `${IMG_BASE_CASUALS}18.webp${VER}`,
     color: 'Grey Melange / Black / Navy'
   },
   {
@@ -222,7 +225,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear. 4 Way Lycra Casuals.',
     features: ['coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh', 'lycra'],
-    imageUrl: `${IMG_BASE_CASUALS}19.png`,
+    imageUrl: `${IMG_BASE_CASUALS}19.webp${VER}`,
     color: 'Grey / Black / Navy / Carbon'
   },
   {
@@ -232,7 +235,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Military Print Dry Fit Polyester Fabric. For Everyone.',
     features: ['dryfit', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}20.png`,
+    imageUrl: `${IMG_BASE_CASUALS}20.webp${VER}`,
     color: 'Black / Red / Navy / Cool Blue'
   },
   {
@@ -242,7 +245,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Jeans Fabric. Cool Rush Technology.',
     features: ['denimfabric', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}21.png`,
+    imageUrl: `${IMG_BASE_CASUALS}21.webp${VER}`,
     color: 'Grey / Black / Navy / Carbon'
   },
   {
@@ -252,7 +255,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Jeans Fabric. Comfortable fit.',
     features: ['denimfabric', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}22.png`,
+    imageUrl: `${IMG_BASE_CASUALS}22.webp${VER}`,
     color: 'Grey / Black / Navy / Carbon'
   },
   {
@@ -262,7 +265,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear. Never Quit.',
     features: ['dryfit', 'coolrush', 'softfeel', 'wrinklefree', 'antistatic', 'staydry', 'stayfresh'],
-    imageUrl: `${IMG_BASE_CASUALS}23.png`,
+    imageUrl: `${IMG_BASE_CASUALS}23.webp${VER}`,
     color: 'Grey / Black / Navy / Carbon'
   },
   {
@@ -272,7 +275,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Single Jersey Bio Wash Premium Quality. Textured pattern.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_CASUALS}24.png`,
+    imageUrl: `${IMG_BASE_CASUALS}24.webp${VER}`,
     color: 'Brown / Grey / Olive / Yellow'
   },
   {
@@ -282,7 +285,7 @@ export const PRODUCTS: Product[] = [
     category: Category.SPORTZ,
     description: 'Premium Quality Sports Wear. Shape Your Body.',
     features: ['micropoly', 'stretch'],
-    imageUrl: `${IMG_BASE_CASUALS}25.png`,
+    imageUrl: `${IMG_BASE_CASUALS}25.webp${VER}`,
     color: 'Grey / Black / Navy / Carbon / Airforce'
   },
   {
@@ -292,7 +295,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Knitted Cool Polyester Premium 4 way Lycra Fabric. Comfortable All Day Long.',
     features: ['lycra', 'coolrush'],
-    imageUrl: `${IMG_BASE_CASUALS}26.png`,
+    imageUrl: `${IMG_BASE_CASUALS}26.webp${VER}`,
     color: 'Navy / Black / Olive / Blue / Beige'
   },
   {
@@ -302,7 +305,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'Knitted Cool Polyester Premium 4 way Lycra Fabric.',
     features: ['lycra', 'coolrush'],
-    imageUrl: `${IMG_BASE_CASUALS}27.png`,
+    imageUrl: `${IMG_BASE_CASUALS}27.webp${VER}`,
     color: 'Navy / Black / Olive / Blue / Beige'
   },
   {
@@ -312,7 +315,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: '100% Polyester Stretch Printed Fabric. Camo Print.',
     features: ['stretch', 'dryfit'],
-    imageUrl: `${IMG_BASE_CASUALS}28.png`,
+    imageUrl: `${IMG_BASE_CASUALS}28.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -322,7 +325,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: '100% Polyester Stretch Printed Fabric. Camo Print.',
     features: ['stretch', 'dryfit'],
-    imageUrl: `${IMG_BASE_CASUALS}29.png`,
+    imageUrl: `${IMG_BASE_CASUALS}29.webp${VER}`,
     color: 'Anthra / Black / Navy / Charcoal'
   },
   {
@@ -332,7 +335,7 @@ export const PRODUCTS: Product[] = [
     category: Category.CASUALS,
     description: 'NS Poly Fabric. Comfortable All The Long.',
     features: ['nspoly'],
-    imageUrl: `${IMG_BASE_CASUALS}30.png`,
+    imageUrl: `${IMG_BASE_CASUALS}30.webp${VER}`,
     color: 'Navy / Black / Olive / Blue / Beige'
   },
   {
@@ -342,7 +345,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BOYS,
     description: 'NS Poly Fabric.',
     features: ['nspoly'],
-    imageUrl: `${IMG_BASE_CASUALS}31.png`,
+    imageUrl: `${IMG_BASE_CASUALS}31.webp${VER}`,
     color: 'Navy / Black / Olive / Blue / Beige'
   },
   {
@@ -352,7 +355,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BOYS,
     description: 'Rich Cotton French Terry Fabric. Grey Melange.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_CASUALS}32.png`,
+    imageUrl: `${IMG_BASE_CASUALS}32.webp${VER}`,
     color: 'Grey / Black / Navy'
   },
   {
@@ -362,7 +365,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BOYS,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_CASUALS}33.png`,
+    imageUrl: `${IMG_BASE_CASUALS}33.webp${VER}`,
     color: 'Grey / Black / Navy'
   },
   {
@@ -372,7 +375,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BOYS,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_CASUALS}34.png`,
+    imageUrl: `${IMG_BASE_CASUALS}34.webp${VER}`,
     color: 'Grey / Black / Navy'
   },
   {
@@ -382,7 +385,7 @@ export const PRODUCTS: Product[] = [
     category: Category.BOYS,
     description: 'Polyester Fabric.',
     features: ['dryfit'],
-    imageUrl: `${IMG_BASE_CASUALS}35.png`,
+    imageUrl: `${IMG_BASE_CASUALS}35.webp${VER}`,
     color: 'Navy / Black / Olive / Blue / Beige'
   },
 
@@ -394,7 +397,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric. Comfortable everyday wear.',
     features: ['frenchterry', 'softfeel'],
-    imageUrl: `${IMG_BASE_LITE}01.png`,
+    imageUrl: `${IMG_BASE_LITE}01.webp${VER}`,
     color: 'Black / Navy / Melange'
   },
   {
@@ -404,7 +407,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric. Stylish cut and sew design.',
     features: ['biowash', 'softfeel'],
-    imageUrl: `${IMG_BASE_LITE}02.png`,
+    imageUrl: `${IMG_BASE_LITE}02.webp${VER}`,
     color: 'Black / Navy / Melange'
   },
   {
@@ -414,7 +417,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cross Pocket.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}03.png`,
+    imageUrl: `${IMG_BASE_LITE}03.webp${VER}`,
     color: 'Black / Navy / Melange'
   },
   {
@@ -424,7 +427,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cross Pocket.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}04.png`,
+    imageUrl: `${IMG_BASE_LITE}04.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -434,7 +437,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}05.png`,
+    imageUrl: `${IMG_BASE_LITE}05.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -444,7 +447,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}06.png`,
+    imageUrl: `${IMG_BASE_LITE}06.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -454,7 +457,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}07.png`,
+    imageUrl: `${IMG_BASE_LITE}07.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -464,7 +467,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric. Sporty look.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}08.png`,
+    imageUrl: `${IMG_BASE_LITE}08.webp${VER}`,
     color: 'Blue / Black / Olive'
   },
   {
@@ -474,7 +477,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric. Sport Season.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}09.png`,
+    imageUrl: `${IMG_BASE_LITE}09.webp${VER}`,
     color: 'Blue / Black / Olive'
   },
   {
@@ -484,7 +487,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}10.png`,
+    imageUrl: `${IMG_BASE_LITE}10.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -494,7 +497,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}11.png`,
+    imageUrl: `${IMG_BASE_LITE}11.webp${VER}`,
     color: 'Black / Navy / Brown / Grey'
   },
   {
@@ -504,7 +507,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric. "Limit Power" Print.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}12.png`,
+    imageUrl: `${IMG_BASE_LITE}12.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -514,7 +517,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric. Special Edition.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}13.png`,
+    imageUrl: `${IMG_BASE_LITE}13.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -524,7 +527,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Dry Fit Polyester Fabric with Piping.',
     features: ['dryfit'],
-    imageUrl: `${IMG_BASE_LITE}14.png`,
+    imageUrl: `${IMG_BASE_LITE}14.webp${VER}`,
     color: 'Black / Navy / Grey'
   },
   {
@@ -534,7 +537,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Dry Fit Polyester Fabric with Piping.',
     features: ['dryfit'],
-    imageUrl: `${IMG_BASE_LITE}15.png`,
+    imageUrl: `${IMG_BASE_LITE}15.webp${VER}`,
     color: 'Black / Navy'
   },
   {
@@ -544,7 +547,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: '100% Polyester Stretch Printed Fabric.',
     features: ['stretch', 'dryfit'],
-    imageUrl: `${IMG_BASE_LITE}16.png`,
+    imageUrl: `${IMG_BASE_LITE}16.webp${VER}`,
     color: 'Camo'
   },
   {
@@ -554,7 +557,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: '100% Polyester Stretch Printed Fabric.',
     features: ['stretch', 'dryfit'],
-    imageUrl: `${IMG_BASE_LITE}17.png`,
+    imageUrl: `${IMG_BASE_LITE}17.webp${VER}`,
     color: 'Camo'
   },
   {
@@ -564,7 +567,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}18.png`,
+    imageUrl: `${IMG_BASE_LITE}18.webp${VER}`,
     color: 'Black / Navy / Brown'
   },
   {
@@ -574,7 +577,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Jeans Fabric. Performance in every step.',
     features: ['denimfabric'],
-    imageUrl: `${IMG_BASE_LITE}19.png`,
+    imageUrl: `${IMG_BASE_LITE}19.webp${VER}`,
     color: 'Blue / Black / Grey'
   },
   {
@@ -584,7 +587,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Jeans Fabric. Performance in motion.',
     features: ['denimfabric'],
-    imageUrl: `${IMG_BASE_LITE}20.png`,
+    imageUrl: `${IMG_BASE_LITE}20.webp${VER}`,
     color: 'Blue / Black / Grey'
   },
   {
@@ -594,7 +597,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}21.png`,
+    imageUrl: `${IMG_BASE_LITE}21.webp${VER}`,
     color: 'Blue / Black / Grey'
   },
   {
@@ -604,7 +607,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric. Hi Performance Blend.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}22.png`,
+    imageUrl: `${IMG_BASE_LITE}22.webp${VER}`,
     color: 'Black / Navy / Blue'
   },
   {
@@ -614,7 +617,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric with Zipper.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}23.png`,
+    imageUrl: `${IMG_BASE_LITE}23.webp${VER}`,
     color: 'Black / Grey / Beige'
   },
   {
@@ -624,7 +627,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Dry Fit Polyester Fabric.',
     features: ['dryfit'],
-    imageUrl: `${IMG_BASE_LITE}24.png`,
+    imageUrl: `${IMG_BASE_LITE}24.webp${VER}`,
     color: 'Black / Grey / White'
   },
   {
@@ -634,7 +637,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Micro Poly Fabric. Trendy Comfort.',
     features: ['micropoly'],
-    imageUrl: `${IMG_BASE_LITE}25.png`,
+    imageUrl: `${IMG_BASE_LITE}25.webp${VER}`,
     color: 'Prints'
   },
   {
@@ -644,7 +647,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}26.png`,
+    imageUrl: `${IMG_BASE_LITE}26.webp${VER}`,
     color: 'Black / Grey'
   },
   {
@@ -654,7 +657,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}27.png`,
+    imageUrl: `${IMG_BASE_LITE}27.webp${VER}`,
     color: 'Black / Grey / Blue'
   },
   {
@@ -664,7 +667,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}28.png`,
+    imageUrl: `${IMG_BASE_LITE}28.webp${VER}`,
     color: 'Black / Grey / Blue'
   },
   {
@@ -674,7 +677,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Piping.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}29.png`,
+    imageUrl: `${IMG_BASE_LITE}29.webp${VER}`,
     color: 'Black / Grey / Blue'
   },
   {
@@ -684,7 +687,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric with Piping.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}30.png`,
+    imageUrl: `${IMG_BASE_LITE}30.webp${VER}`,
     color: 'Black / Grey / Blue'
   },
   {
@@ -694,7 +697,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}31.png`,
+    imageUrl: `${IMG_BASE_LITE}31.webp${VER}`,
     color: 'Black / Grey / Blue'
   },
   {
@@ -704,7 +707,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}32.png`,
+    imageUrl: `${IMG_BASE_LITE}32.webp${VER}`,
     color: 'Black / Grey'
   },
   {
@@ -714,7 +717,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric with Cut & Sew.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}33.png`,
+    imageUrl: `${IMG_BASE_LITE}33.webp${VER}`,
     color: 'Black / Blue'
   },
   {
@@ -724,7 +727,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}34.png`,
+    imageUrl: `${IMG_BASE_LITE}34.webp${VER}`,
     color: 'Black / Blue / Grey'
   },
   {
@@ -734,7 +737,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}35.png`,
+    imageUrl: `${IMG_BASE_LITE}35.webp${VER}`,
     color: 'Black / Grey'
   },
   {
@@ -744,7 +747,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton Single Jersey Fabric.',
     features: ['biowash'],
-    imageUrl: `${IMG_BASE_LITE}36.png`,
+    imageUrl: `${IMG_BASE_LITE}36.webp${VER}`,
     color: 'Black / Blue / Teal'
   },
   {
@@ -754,7 +757,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Rich Cotton French Terry Fabric. All the long.',
     features: ['frenchterry'],
-    imageUrl: `${IMG_BASE_LITE}37.png`,
+    imageUrl: `${IMG_BASE_LITE}37.webp${VER}`,
     color: 'Beige / Black / Blue'
   },
   {
@@ -764,7 +767,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Dry Fit Polyester Fabric. Game On.',
     features: ['dryfit', 'micropoly'],
-    imageUrl: `${IMG_BASE_LITE}38.png`,
+    imageUrl: `${IMG_BASE_LITE}38.webp${VER}`,
     color: 'Grey / Blue'
   },
   {
@@ -774,7 +777,7 @@ export const PRODUCTS: Product[] = [
     category: Category.LITE,
     description: 'Dry Fit Polyester Fabric. Trendy Track Pant.',
     features: ['dryfit', 'micropoly'],
-    imageUrl: `${IMG_BASE_LITE}39.png`,
+    imageUrl: `${IMG_BASE_LITE}39.webp${VER}`,
     color: 'Grey / Blue'
   },
 ];

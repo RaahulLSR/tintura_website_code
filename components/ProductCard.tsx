@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product } from '../types';
 import { Plus, Zap, Droplets, Shield } from 'lucide-react';
 
@@ -8,6 +8,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   // Helper to show small tech badges
   const techBadge = (type: string) => {
       if (type === 'dryfit') return <div className="bg-blue-600 text-white p-1 rounded-sm" title="Dry Fit"><Zap className="w-3 h-3" /></div>;
@@ -22,11 +24,24 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
       onClick={() => onClick(product)}
     >
       {/* Image Container */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-gray-200">
+      <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
+        
+        {/* Loading Placeholder (Shimmer Effect) */}
+        {!isImageLoaded && (
+          <div className="absolute inset-0 bg-gray-200 z-10 overflow-hidden">
+             <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-[shimmer_1.5s_infinite]" style={{ backgroundSize: '200% 100%' }}></div>
+             <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-gray-300 font-display tracking-widest text-xl opacity-50">TINTURA</span>
+             </div>
+          </div>
+        )}
+
         <img 
           src={product.imageUrl} 
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          onLoad={() => setIsImageLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${isImageLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-md'}`}
         />
         
         {/* Decorative Overlay Frame (Red Lines from PDF style) */}
@@ -34,20 +49,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
         {/* Floating Action Button */}
         <div className="absolute bottom-0 right-0 z-20">
-          <button className="bg-tintura-black text-white p-4 hover:bg-tintura-red transition-colors duration-300">
+          <button className="bg-tintura-black text-white p-4 hover:bg-tintura-red transition-colors duration-300 shadow-lg">
             <Plus className="w-5 h-5" />
           </button>
         </div>
 
         {/* Tech Badges Row */}
-        <div className="absolute top-3 right-3 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-4 group-hover:translate-x-0">
+        <div className="absolute top-3 right-3 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-4 group-hover:translate-x-0 z-20">
             {product.features.slice(0, 3).map(f => (
                 <div key={f}>{techBadge(f)}</div>
             ))}
         </div>
 
         {/* Tags */}
-        <div className="absolute top-0 left-0">
+        <div className="absolute top-0 left-0 z-20">
              {product.isNew && (
                 <span className="inline-block bg-tintura-red text-white text-[10px] font-bold px-3 py-1 uppercase tracking-widest">
                     New
@@ -87,6 +102,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
             </div>
         </div>
       </div>
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
     </div>
   );
 };

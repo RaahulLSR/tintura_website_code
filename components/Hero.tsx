@@ -30,8 +30,8 @@ const Hero: React.FC = () => {
                 #SUMMERLOOKBOOK
             </div>
             <h1 className="text-6xl md:text-8xl font-display font-bold leading-none uppercase tracking-tighter shadow-black drop-shadow-lg">
-                Casual<br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">Affair</span>
+                Urban<br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">Legacy</span>
             </h1>
             <p className="text-xl text-gray-200 font-light max-w-lg border-l-4 border-tintura-red pl-4 bg-black/30 p-2 backdrop-blur-sm">
                 The ultimate collection. Blending high-performance technology with urban aesthetics.
